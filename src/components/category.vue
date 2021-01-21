@@ -1,0 +1,45 @@
+<template>
+  <div>
+    <md-list>
+      <div v-for="drink of limitBy(drinks, limit)" :key="drink.idDrink">
+        <md-list-item :to="'/drink/' + drink.idDrink">
+          <md-avatar class="md-large">
+            <img :src="drink.strDrinkThumb" />
+          </md-avatar>
+          <span class="md-list-item-text">{{ drink.strDrink }}</span>
+        </md-list-item>
+        <md-divider> </md-divider>
+      </div>
+    </md-list>
+    <md-button class="md-primary md-raised" @click="more">See more</md-button>
+  </div>
+</template>
+
+<script>
+import DataService from "../dataservice";
+import Vue2Filters from "vue2-filters";
+export default {
+  name: "drinks",
+  data() {
+    return {
+      drinks: [],
+      limit: 20,
+    };
+  },
+  created: function () {
+    DataService.getCockbyCateg(this.$route.params.category).then((data) => {
+      this.drinks = data.data.drinks;
+    });
+  },
+  methods: {
+    more: function () {
+      this.limit += 20;
+    },
+  },
+
+  mixins: [Vue2Filters.mixin],
+};
+</script>
+
+<style >
+</style>
