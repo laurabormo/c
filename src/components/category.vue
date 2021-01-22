@@ -11,7 +11,9 @@
         <md-divider> </md-divider>
       </div>
     </md-list>
+    <div v-if="drinks[limit]">
     <md-button class="md-primary md-raised" @click="more">See more</md-button>
+    </div>
   </div>
 </template>
 
