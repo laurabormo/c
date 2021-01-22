@@ -12,7 +12,9 @@
         <md-divider></md-divider>
       </div>
     </md-list>
+    <div v-if="ingredients[limit]">
     <md-button class="md-primary md-raised" @click="more">See more</md-button>
+    </div>
   </div>
 </template>
 
