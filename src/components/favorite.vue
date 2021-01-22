@@ -58,36 +58,3 @@ export default {
 
 
 
-<!--<script>
-import firebase from "firebase";
-import { db } from "../dataservice.js";
-
-
-DataService.getDrink("Cocoa").then((data) => {
-  this.drinks = data.data.drinks;
-});
-
-
-
-export default {
-  name: "getFavourites",
-  data() {
-    return {
-      userEmail: "",
-      favouriteDrinks: "",
-    };
-  },
-  methods: {
-    getFavourites: function (e) {
-      const favourites = db.collection("favourites");
-      const snapshot = favourites.get();
-      snapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-      });
-    },
-  },
-  beforeMount() {
-    this.getFavourites();
-  },
-};
-</script>-->
